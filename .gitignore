@@ -1,0 +1,9 @@
+/Plantilla 1/node_modules
+/Plantilla 1/src/core/token
+/Plantilla 2/node_modules
+/Plantilla 2/.env
+/Plantilla 3/node_modules
+/Plantilla 3/container/Bot1/node_modules
+/Plantilla 3/container/Bot2/node_modules
+/Plantilla 3/container/Bot1/src/data/token
+/Plantilla 3/container/Bot2/src/data/token
