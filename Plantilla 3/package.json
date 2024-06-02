@@ -1,0 +1,20 @@
+{
+  "name": "plantilla-3-bots-discord",
+  "version": "1.0.0",
+  "description": "Plantilla 3 de bots de Discord de Samuel Vergara Martín",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "@Sam170703dev",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "discord.js": "^14.11.0",
+    "fs": "^0.0.1-security",
+    "glob": "^10.2.6",
+    "sourcebin": "^5.0.0",
+    "util": "^0.12.5"
+  }
+}
