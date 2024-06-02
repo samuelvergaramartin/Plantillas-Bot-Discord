@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "Plantilla 4 para bots de Discord en JavaScript",
   "dependencies": {
-    "discord.js": "^14.15.2"
+    "discord.js": "^14.15.2",
+    "netcat-utils": "^0.2.7"
   }
 }
