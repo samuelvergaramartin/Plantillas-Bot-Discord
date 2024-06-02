@@ -1,0 +1,16 @@
+{
+  "name": "plantilla-4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index"
+  },
+  "keywords": [],
+  "author": "Samuel Vergara Martín",
+  "license": "ISC",
+  "description": "Plantilla 4 para bots de Discord en JavaScript",
+  "dependencies": {
+    "discord.js": "^14.15.2"
+  }
+}
