@@ -24,18 +24,18 @@ class Bot extends Client {
     };
 
     constructor(data) {
-        if(data.botIntents) this.botIntents = data.botIntents;
-        if(data.botPartials) this.botPartials = data.botPartials;
-        if(data.botMentions) this.botMentions = data.botMentions;
-
         super({
-            intents: this.botIntents,
-            partials: this.botPartials,
+            intents: data.botIntents,
+            partials: data.botPartials,
             allowedMentions: {
-                parse: this.botMentions,
+                parse: data.botMentions,
                 repliedUser: true
             }
         });
+
+        if(data.botIntents) this.botIntents = data.botIntents;
+        if(data.botPartials) this.botPartials = data.botPartials;
+        if(data.botMentions) this.botMentions = data.botMentions;
 
         if(data.botName) this.botName = data.botName;
         else this.botName = this.user.username;
@@ -45,7 +45,7 @@ class Bot extends Client {
 
         if(data.botCommands) this.botCommands = data.botCommands;
 
-        if(data.botEvents) this.botEvents = data.botEvents;ç
+        if(data.botEvents) this.botEvents = data.botEvents;
 
         if(data.botStatus == null) this.botStatus = "online";
         else this.botStatus = data.botStatus;
@@ -55,8 +55,15 @@ class Bot extends Client {
     }
 
     prepareClient() {
-        this.user.setStatus(this.botStatus);
-        this.user.setActivity({type: Custom, state: this.botPresenceMesaage });
+        this.on('ready', ()=> {
+            this.user.setStatus(this.botStatus);
+            this.user.setActivity({type: Custom, name: this.botPresenceMesaage });
+        });
+    }
+
+    start() {
+        this.login(this.botToken);
+        console.log("Sesion iniciada correctamente");
     }
 }
 
