@@ -1,4 +1,4 @@
-const { Client } = require('discord.js');
+const { Client, ActivityType: { Custom } } = require('discord.js');
 
 class Bot extends Client {
     botName;
@@ -44,7 +44,7 @@ class Bot extends Client {
         else this.botToken = data.botToken;
 
         if(data.botCommands) this.botCommands = data.botCommands;
-        
+
         if(data.botEvents) this.botEvents = data.botEvents;ç
 
         if(data.botStatus == null) this.botStatus = "online";
@@ -53,4 +53,11 @@ class Bot extends Client {
         if(data.botPresenceMesaage == null) this.botPresenceMesaage = `${this.botName} : Ready`;
         else this.botPresenceMesaage = data.botPresenceMesaage;
     }
+
+    prepareClient() {
+        this.user.setStatus(this.botStatus);
+        this.user.setActivity({type: Custom, state: this.botPresenceMesaage });
+    }
 }
+
+module.exports = Bot;
