@@ -1,0 +1,16 @@
+{
+  "name": "plantillas-bot-discord",
+  "version": "0.0.1",
+  "description": "Plantilla para bots de Discord en JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Samuel Vergara Martín",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
