@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<scr>
+    <index.js/>
+    <core>
+        <client.js/>
+    </core>
+</scr>
