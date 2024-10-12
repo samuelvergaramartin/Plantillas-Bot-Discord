@@ -1,3 +1,3 @@
 # Plantillas para bots de discord.
 
-- Lastest: Plantilla actual
+Plantilla para bots de discord en JavaScript.
