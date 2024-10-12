@@ -4,4 +4,9 @@
     <core>
         <client.js/>
     </core>
+    <data>
+        <token hidden="true">
+            <token.js hidden="true"/>
+        </token>
+    </data>
 </scr>
