@@ -1,4 +1,4 @@
-const Bot = require('../core/client');
+const Bot = require('../core/client/client');
 const testBot = new Bot();
 
 function checkIfIntentsAreLoaded() {
