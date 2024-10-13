@@ -9,5 +9,7 @@
             <token.js hidden="true"/>
         </token>
     </data>
-    <tests></tests>
+    <tests>
+        <client.test.js/>
+    </tests>
 </scr>
