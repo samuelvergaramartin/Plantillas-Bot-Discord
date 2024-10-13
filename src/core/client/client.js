@@ -16,10 +16,13 @@ class Bot extends Client {
         })
     }
 
-    
+    load() {
+
+    }
 
     async start() {
         console.log("Encendiendo el bot...");
+        this.load();
         this.login(token);
     }
 
