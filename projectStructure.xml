@@ -2,7 +2,12 @@
 <scr>
     <index.js/>
     <core>
-        <client.js/>
+        <client>
+            <client.js/>
+        </client>
+        <AntiCrash>
+            <AntiCrash-System.js/>
+        </AntiCrash>
     </core>
     <data>
         <token hidden="true">
