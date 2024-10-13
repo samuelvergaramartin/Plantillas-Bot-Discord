@@ -1,4 +1,5 @@
 const Bot = require('../core/client/client');
+const token = require('../data/token/token');
 const testBot = new Bot();
 
 function checkIfIntentsAreLoaded() {
@@ -7,7 +8,7 @@ function checkIfIntentsAreLoaded() {
 }
 
 function checkIfTokenIsProvided() {
-    if(testBot.token && testBot.token != "" && testBot.token != null) return true;
+    if(token && token != "" && token != null) return true;
     else return false;
 }
 
