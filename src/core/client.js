@@ -17,7 +17,7 @@ class Bot extends Client {
     }
 
     async start() {
-        
+        this.login(token);
     }
 
     shutdown() {
