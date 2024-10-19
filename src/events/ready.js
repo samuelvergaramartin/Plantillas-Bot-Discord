@@ -3,6 +3,6 @@ module.exports = {
     once: false,
     activated: true,
     run: async(bot) => {
-        console.log("Se tensa");
+        console.log("Bot encendido y listo para la acción");
     }
 }
