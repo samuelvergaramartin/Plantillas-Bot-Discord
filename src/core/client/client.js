@@ -19,7 +19,7 @@ class Bot extends Client {
     }
 
     load() {
-        //AntiCrashSystem();
+        AntiCrashSystem();
         eventsLoader(this);
     }
 
