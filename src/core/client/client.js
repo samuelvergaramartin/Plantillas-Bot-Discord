@@ -15,8 +15,12 @@ class Bot extends Client {
                 parse: NetCatMentionsAll,
                 repliedUser: true,
             },
-        })
+        });
+
+        this.eventsArray = [];
     }
+
+    
 
     load() {
         AntiCrashSystemLoader();
