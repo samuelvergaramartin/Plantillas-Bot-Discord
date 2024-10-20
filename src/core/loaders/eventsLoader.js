@@ -1,31 +1,64 @@
-const { red, blue, green } = require('colors');
-const { readdirSync, readFileSync } = require('fs');
-async function eventsLoader(bot) {
-    const { readdirSync, readFileSync } = require('fs');
-    const Files = readdirSync("./src/events/");
+const { red, blue, green, yellow } = require('colors');
+const { readdirSync } = require('fs');
 
-    for (let index = 0; index < Files.length; index++) {
-        const file = Files[index];
-        const fileName = Files[index].split(".")[0];
-        const extension = Files[index].split(".")[1];
+let files;
+let fileName;
+let extension;
+let event;
+
+async function eventsLoader(bot, showErrors) {
+
+    files = readdirSync("./src/events/");
+
+    console.log(yellow("(/) Cargando eventos"));
+
+    function showEventLoaded(event) {
+        console.log(blue(`(+) Evento: ${event.name} `) + "[ " + green("OK") + " ]");
+    }
+
+    function loadEvent(event) {
+        if(event.name && event.activated) {
+            if(event.once) {
+                bot.once(event.name, (...args) => event.run(bot, ...args));
+                showEventLoaded(event);
+            }
+            else {
+                bot.on(event.name, (...args) => event.run(bot, ...args));
+                showEventLoaded(event);
+            }
+        }
+    }
+
+    function showEventFailed(event) {
+        if(event.name) console.log(blue(`(-) Evento: ${event.name} `) + "[ " + red("ERROR") + " ]");
+    }
+
+    for (let i = 0; i < files.length; i++) {
+
+        fileName = files[i].split(".")[0];
+        extension = files[i].split(".")[1];
 
         if(extension == "js") {
             try {
-                const event = require(`../../events/${fileName}`);
+                event = require(`../../events/${fileName}`);
 
-                if(event.name && event.activated) {
-                    if(event.once) {
-                        bot.once(event.name, (...args) => event.run(bot, ...args));
+                if(event) {
+                    if(!showErrors) {
+                        if(!event.run) showEventFailed(event);
+                        else loadEvent(event);
                     }
-                    else {
-                        bot.on(event.name, (...args) => event.run(bot, ...args));
-                    }
-                } 
+                    else loadEvent(event);
+                }
+                else {
+                    showErrors = true;
+                    throw new Error("event is undefined");
+                }
+                
             } 
             catch (error) {
-                console.log(error);
+                if(event) showEventFailed(event);
+                if(showErrors) console.log(error);
             }
-            
         }
     }
 }
